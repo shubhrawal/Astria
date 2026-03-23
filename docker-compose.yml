@@ -7,6 +7,12 @@ services:
       - "5173:5173"
     volumes:
       - ./frontend:/app
-      - /app/node_modules   # keeps container's node_modules, not host's
-      
-      #add backend volume later if you want to use backend in development
+      - /app/node_modules
+
+  llm-service:
+    build:
+      context: ./llm-service
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./llm-service/.env
