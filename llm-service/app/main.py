@@ -7,6 +7,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from .schemas import CheckInRequest, PlanResponse
 from .service import GeminiPlanService
 
+from .storage import InMemoryPlanStore
+from uuid import uuid4
+
 load_dotenv()
 
 app = FastAPI(title="Astria LLM Service", version="0.1.0")
