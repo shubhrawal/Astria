@@ -10,8 +10,8 @@ from .schemas import CheckInRequest, PlanResponse
 
 class GeminiPlanService:
     def __init__(self) -> None:
-        self.model_name = os.getenv("MODEL_NAME", "gemini-2.5-flash")
-        self.client = genai.Client()
+        self.model_name = os.getenv("model_name", "gemini-2.5-flash")
+        self.client = genai.Client(api_key=os.getenv("gemini_api_key"))
 
     def generate_plan(self, request: CheckInRequest) -> PlanResponse:
         cleaned_tasks = [task.strip() for task in request.tasks if task and task.strip()]
