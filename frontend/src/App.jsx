@@ -1,13 +1,39 @@
+import { useState } from 'react'
 import './App.css'
+import CheckIn from './CheckIn.jsx'
+import PlanResult from './PlanResult.jsx'
 
 function App() {
+  const [page, setPage] = useState('landing')
+  const [plan, setPlan] = useState(null)
+  const [userName, setUserName] = useState('')
+
+  function handlePlanGenerated(planData, name) {
+    setPlan(planData)
+    setUserName(name)
+    setPage('result')
+  }
+
+  function handleStartOver() {
+    setPlan(null)
+    setUserName('')
+    setPage('checkin')
+  }
+
+  if (page === 'checkin') {
+    return <CheckIn onPlanGenerated={handlePlanGenerated} onBack={() => setPage('landing')} />
+  }
+
+  if (page === 'result' && plan) {
+    return <PlanResult plan={plan} userName={userName} onStartOver={handleStartOver} />
+  }
+
   return (
     <div className="page">
       <header className="navbar">
         <span className="logo-text">Astria</span>
         <nav>
-          <a href="#">Sign In</a>
-          <a href="#" className="btn-nav">Get Started</a>
+          <button className="btn-nav" onClick={() => setPage('checkin')}>Get Started</button>
         </nav>
       </header>
 
@@ -17,7 +43,7 @@ function App() {
           Astria helps students plan their day, break down tasks, and get started with their tasks
           without being overwhelmed. Designed for the way your brain works.
         </p>
-        <button className="btn-primary">Start Planning Today</button>
+        <button className="btn-primary" onClick={() => setPage('checkin')}>Start Planning Today</button>
       </main>
 
       <section className="features">

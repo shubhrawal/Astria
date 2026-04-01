@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(pip install:*)",
+      "Bash(pip list:*)",
+      "Bash(python3 -c \"import pdfplumber; print\\(''ok''\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\(''ok''\\)\")",
+      "Bash(PYTHONPATH=/tmp/pylibs python -c \":*)",
+      "Bash(PYTHONPATH=/tmp/pylibs PYTHONIOENCODING=utf-8 python -c \":*)"
+    ]
+  }
+}
