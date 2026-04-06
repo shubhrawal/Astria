@@ -1,4 +1,0 @@
-fastapi[standard]
-google-genai
-python-dotenv
-pydantic>=2
