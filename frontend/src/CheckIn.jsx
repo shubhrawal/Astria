@@ -85,7 +85,6 @@ function CheckIn({ onPlanGenerated, onBack }) {
           <input
             id="name"
             type="text"
-            placeholder="e.g. Shubh"
             value={name}
             onChange={e => setName(e.target.value)}
             required
