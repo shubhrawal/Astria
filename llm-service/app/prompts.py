@@ -21,6 +21,10 @@ Output rules:
 - Encouragements should be short and warm.
 - "startHere" should be one task or one tiny first step.
 - Priorities should usually be the top 2 to 3 tasks.
+- Include a "reward" object:
+    - "xp": a number from 10 to 100. Base it on how many tasks the student submitted and how high their stress is. More tasks + higher stress = more XP. 1 easy task = ~15 XP, 5 hard tasks = ~90 XP.
+    - "badge": a short fun string with an emoji and name. Pick one that fits their situation. Examples: "🔥 Grind Mode", "🌱 Getting Started", "⚡ Power Session", "🧘 Calm Focus", "🏆 Big Day", "💪 Push Through", "🌙 Night Owl", "🚀 Full Send".
+    - "reason": one warm, specific sentence telling them what they earned it for. Reference their actual situation (e.g. high stress, lots of tasks, low energy but showing up anyway).
 
 Student check-in JSON:
 {payload_json}

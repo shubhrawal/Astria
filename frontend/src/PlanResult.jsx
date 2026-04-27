@@ -1,6 +1,15 @@
+import { useState } from 'react'
 import './PlanResult.css'
 
-function PlanResult({ plan, userName, onStartOver }) {
+function PlanResult({ plan, userName, onStartOver, onRewardClaimed }) {
+  const [claimed, setClaimed] = useState(false)
+
+  function handleClaim() {
+    if (claimed) return
+    setClaimed(true)
+    onRewardClaimed(plan.reward.xp)
+  }
+
   return (
     <div className="plan-page">
       <header className="navbar">
@@ -13,6 +22,30 @@ function PlanResult({ plan, userName, onStartOver }) {
           Hey {userName}, here's your plan.
         </h1>
         <p className="focus-message">{plan.focusMessage}</p>
+
+        {plan.reward && (
+          <div className={`reward-card ${claimed ? 'reward-card--claimed' : ''}`}>
+            <div className="reward-badge-pill">{plan.reward.badge}</div>
+            <div className="reward-details">
+              <div className="reward-xp-row">
+                <span className="reward-xp">+{plan.reward.xp} XP</span>
+                <span className="reward-xp-label">
+                  {claimed ? 'added to your total!' : 'available to claim'}
+                </span>
+              </div>
+              <p className="reward-reason">{plan.reward.reason}</p>
+              {!claimed
+                ? (
+                  <button className="claim-btn" onClick={handleClaim}>
+                    ✅ I'm Done with My Work
+                  </button>
+                )
+                : (
+                  <p className="claimed-msg">🎉 XP claimed! Nice work.</p>
+                )}
+            </div>
+          </div>
+        )}
 
         <div className="start-here">
           <span className="start-label">Start here</span>

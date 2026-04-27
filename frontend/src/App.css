@@ -1,4 +1,3 @@
-
 .page {
   min-height: 100vh;
   display: flex;
@@ -26,7 +25,7 @@
 
 .navbar nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -49,11 +48,71 @@
   background: #6448a8;
 }
 
+/* XP badge in navbar */
+.xp-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(167, 139, 219, 0.12);
+  border: 1px solid #7c5cbf;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.xp-badge-icon {
+  font-size: 0.85rem;
+}
+
+.xp-badge-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #a78bfa;
+}
+
+/* XP widget in hero */
+.xp-hero-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #1e1535, #2a1f4a);
+  border: 1px solid #7c5cbf;
+  border-radius: 16px;
+  padding: 12px 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(124, 92, 191, 0.2);
+}
+
+.xp-hero-icon {
+  font-size: 1.4rem;
+}
+
+.xp-hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.xp-hero-total {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #a78bfa;
+}
+
+.xp-hero-label {
+  font-size: 0.78rem;
+  color: #7c6aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
 
 .hero {
   max-width: 640px;
   text-align: center;
   padding: 5rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero h1 {

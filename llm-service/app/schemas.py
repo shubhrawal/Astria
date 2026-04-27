@@ -16,9 +16,16 @@ class TaskPlan(BaseModel):
     steps: List[str] = Field(min_length=1)
 
 
+class Reward(BaseModel):
+    xp: int
+    badge: str
+    reason: str
+
+
 class PlanResponse(BaseModel):
     focusMessage: str
     startHere: str
     priorities: List[str] = Field(min_length=1)
     taskPlans: List[TaskPlan] = Field(min_length=1)
     encouragements: List[str] = Field(min_length=1)
+    reward: Reward
